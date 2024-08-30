@@ -14,7 +14,7 @@ export class VeltService {
 	) { }
 
 	async initializeVelt(apiKey: string): Promise<void> {
-		this.client = await initVelt(apiKey, { organizationId: 'velt-sample-app' });
+		this.client = await initVelt(apiKey);
 		this.authService.login();
 	}
 

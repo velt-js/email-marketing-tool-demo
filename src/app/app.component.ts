@@ -1,6 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { VeltService } from './services/velt.service';
+import { AuthService } from './services/auth.service';
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
 import { DocumentComponent } from './components/document/document.component'
@@ -19,12 +20,19 @@ export class AppComponent implements OnInit {
 
 	constructor(
 		private veltService: VeltService,
+		private authService: AuthService,
 	) { }
 
 
 	async ngOnInit(): Promise<void> {
 		await this.veltService.initializeVelt('AN5s6iaYIuLLXul0X4zf');
-		await this.veltService.setDocument('email', { documentName: 'email' });
+
+		const user = this.authService.getUser()(); // Getting Random User
+		if (user) {
+			await this.veltService.identifyUser(user);
+		}
+
+		await this.veltService.setDocument('task', { documentName: 'task' });
 		this.veltService.setDarkMode(true);
 	}
 }
