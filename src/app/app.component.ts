@@ -25,14 +25,16 @@ export class AppComponent implements OnInit {
 
 
 	async ngOnInit(): Promise<void> {
+		// Follow the Setup Guide for more info: https://docs.velt.dev/get-started/setup/install
+		
 		await this.veltService.initializeVelt('AN5s6iaYIuLLXul0X4zf');
 
-		const user = this.authService.getUser()(); // Getting Random User
+		const user = this.authService.getUser()();
 		if (user) {
 			await this.veltService.identifyUser(user);
 		}
 
-		await this.veltService.setDocument('task', { documentName: 'task' });
+		await this.veltService.setDocument('email', { documentName: 'email' });
 		this.veltService.setDarkMode(true);
 	}
 }
