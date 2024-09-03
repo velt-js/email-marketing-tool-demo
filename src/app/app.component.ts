@@ -2,14 +2,13 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { VeltService } from './services/velt.service';
 import { AuthService } from './services/auth.service';
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
 import { DocumentComponent } from './components/document/document.component'
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet, SidebarComponent, ToolbarComponent, DocumentComponent],
+	imports: [RouterOutlet, ToolbarComponent, DocumentComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss',
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
