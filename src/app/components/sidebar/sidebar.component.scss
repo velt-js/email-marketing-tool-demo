@@ -13,6 +13,7 @@
 	&.icon-only {
 		padding-right: 1rem;
 		padding-left: 1rem;
+
 		.main {
 			align-items: center;
 		}
@@ -48,73 +49,85 @@
 			}
 		}
 
-		.links {
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 0.5rem;
-			width: auto;
+		.link-group {
+			margin-top: 0.75rem;
 
-			.link {
+			small {
+				font-size: 10px;
+				opacity: 0.5;
 				padding: 0.75rem;
-				width: 100%;
+				text-transform: uppercase;
+			}
+
+			.links {
+				margin-top: 0.75rem;
 				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 1rem;
-				border-radius: 0.75rem;
-				background-color: light-dark(white, black);
+				justify-content: center;
+				align-items: flex-start;
+				flex-direction: column;
+				gap: 0.5rem;
+				width: auto;
 
-				transition: all 300ms ease-in-out;
+				.link {
+					padding: 0.75rem;
+					width: 100%;
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 1rem;
+					border-radius: 0.75rem;
+					background-color: light-dark(white, black);
 
-				&:hover {
-					background-color: light-dark(var(--light-bg-0), var(--dark-bg-0));
-					cursor: pointer;
+					transition: all 300ms ease-in-out;
 
-					.icon svg {
-						stroke: light-dark(var(--light-text-0), var(--dark-text-0));
+					&:hover {
+						background-color: light-dark(var(--light-bg-0), var(--dark-bg-0));
+						cursor: pointer;
+
+						.icon svg {
+							stroke: light-dark(var(--light-text-0), var(--dark-text-0));
+						}
+
+						.label {
+							color: light-dark(var(--light-text-0), var(--dark-text-0));
+						}
+					}
+
+					&.active {
+						background-color: light-dark(var(--light-bg-1), var(--dark-bg-1));
+						cursor: pointer;
+
+						.icon svg {
+							stroke: light-dark(var(--light-text-1), var(--dark-text-1));
+						}
+
+						.label {
+							color: light-dark(var(--light-text-1), var(--dark-text-1));
+						}
+					}
+
+					&.icon-only {
+						width: fit-content;
+
+						.label {
+							display: none;
+						}
+					}
+
+					.icon {
+						display: contents;
+
+						svg {
+							transition: all 300ms ease-in-out;
+							stroke: light-dark(var(--light-text-0), var(--dark-text-0));
+						}
 					}
 
 					.label {
+						font-size: 0.8rem;
+						transition: all 300ms ease-in-out;
 						color: light-dark(var(--light-text-0), var(--dark-text-0));
 					}
-				}
-
-				&.active {
-					background-color: light-dark(var(--light-bg-1), var(--dark-bg-1));
-					cursor: pointer;
-
-					.icon svg {
-						stroke: light-dark(var(--light-text-1), var(--dark-text-1));
-					}
-
-					.label {
-						color: light-dark(var(--light-text-1), var(--dark-text-1));
-					}
-				}
-
-				&.icon-only {
-					width: fit-content;
-
-					.label {
-						display: none;
-					}
-				}
-
-				.icon {
-					display: contents;
-
-					svg {
-						transition: all 300ms ease-in-out;
-						stroke: light-dark(var(--light-text-0), var(--dark-text-0));
-					}
-				}
-
-				.label {
-					font-size: 0.8rem;
-					transition: all 300ms ease-in-out;
-					color: light-dark(var(--light-text-0), var(--dark-text-0));
 				}
 			}
 		}
