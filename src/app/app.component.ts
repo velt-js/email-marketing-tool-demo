@@ -4,11 +4,12 @@ import { VeltService } from './services/velt.service';
 import { AuthService } from './services/auth.service';
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
 import { DocumentComponent } from './components/document/document.component'
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet, ToolbarComponent, DocumentComponent],
+	imports: [RouterOutlet, ToolbarComponent, DocumentComponent, SidebarComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss',
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
