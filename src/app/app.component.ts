@@ -22,18 +22,19 @@ export class AppComponent implements OnInit {
 		private authService: AuthService,
 	) { }
 
-
+	/**
+	 * Initializes the Velt service and set up the collaboration environment.
+	 */
 	async ngOnInit(): Promise<void> {
-		// Follow the Setup Guide for more info: https://docs.velt.dev/get-started/setup/install
-		
+
+		// Initialize Velt with the API key
 		await this.veltService.initializeVelt('AN5s6iaYIuLLXul0X4zf');
 
-		const user = this.authService.getUser()();
+		// Identify the current user if authenticated
+		const user = this.authService.userSignal();
 		if (user) {
 			await this.veltService.identifyUser(user);
 		}
 
-		await this.veltService.setDocument('email', { documentName: 'email' });
-		this.veltService.setDarkMode(true);
 	}
 }
