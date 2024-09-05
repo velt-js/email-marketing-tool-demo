@@ -29,12 +29,8 @@ export class DocumentComponent {
 		effect(() => {
 			this.client = this.veltService.clientSignal();
 			if (this.client) {
-
 				// Contain your comments in a document by setting a Document ID & Name
 				this.client.setDocument('email', { documentName: 'email' });
-
-				// Enable dark mode for Velt UI
-				this.client.setDarkMode(true);
 			}
 		});
 	}
